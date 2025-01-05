@@ -189,7 +189,7 @@ public class WebController {
         return webService.appPush(type, price, t, sign);
     }
 
-    @CrossOrigin(origins = {"http://localhost", "https://syjia.online"})
+    @CrossOrigin(origins = {"http://localhost:8090", "https://syjia.online","https://pay.syjia.online"})
     @RequestMapping("/getOrder")
     public CommonRes getOrder(String orderId) {
         if (orderId == null) {
