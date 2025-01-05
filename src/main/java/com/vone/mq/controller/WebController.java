@@ -12,6 +12,7 @@ import com.vone.mq.dto.CreateOrderRes;
 import com.vone.mq.service.WebService;
 import com.vone.mq.utils.ResUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -188,6 +189,7 @@ public class WebController {
         return webService.appPush(type, price, t, sign);
     }
 
+    @CrossOrigin(origins = {"http://localhost", "https://syjia.online"})
     @RequestMapping("/getOrder")
     public CommonRes getOrder(String orderId) {
         if (orderId == null) {

@@ -51,7 +51,8 @@ public class WebService {
         int payQf = Integer.parseInt(settingDao.findById("payQf").get().getVvalue());
         //实际支付价格
         double reallyPrice = priceD;
-
+        //最小支付金额 priceD -1 or 0
+        double minPrice = Arith.sub(priceD,1) < 0 ? 0 : Arith.sub(priceD,1);
         int row = 0;
         while (row == 0){
             try {
@@ -71,7 +72,7 @@ public class WebService {
             }else{
                 break;
             }
-            if (reallyPrice<=0){
+            if (reallyPrice<=minPrice){
                 return ResUtil.error("所有金额均被占用");
             }
         }
