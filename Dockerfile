@@ -14,7 +14,7 @@ RUN mvn clean package -DskipTests
 RUN mv target/*.jar /app/app.jar
 
 # 容器启动时执行的命令，运行 Java 应用
-ENTRYPOINT ["java", "-jar", "/app/app.jar"]
+ENTRYPOINT ["java", "-Xms512m", "-Xmx512m", "-jar", "/app/app.jar"]
 
 # 如果应用运行在特定端口，使用 EXPOSE 指定端口
 EXPOSE 8080
