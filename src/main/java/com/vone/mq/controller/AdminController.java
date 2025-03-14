@@ -28,6 +28,8 @@ public class AdminController {
         CommonRes r = adminService.login(user, pass);
         if (r.getCode()==1){
             session.setAttribute("login","1");
+            //设定过期时长为7天
+            session.setMaxInactiveInterval(60*60*24*7);
         }
         return r;
     }
